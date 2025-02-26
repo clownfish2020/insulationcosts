@@ -75,7 +75,7 @@
   }
   
   body {
-    @apply bg-background text-foreground antialiased font-montserrat;
+    @apply bg-white dark:bg-gray-900 antialiased font-montserrat;
   }
 
   /* Typography */
@@ -216,5 +216,9 @@
 }
 
 /* Add any other global styles here */
+
+.main-content {
+  @apply relative z-10;
+}
 
 
