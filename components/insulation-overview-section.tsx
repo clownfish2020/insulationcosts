@@ -17,22 +17,44 @@ const ImageCarousel = dynamic(() => import('@/components/ui/image-carousel').the
 // Move images to a separate constant file or API endpoint if the list grows
 const homeImages = [
   {
-    src: "/mineral-wool-insulation-costs-ireland-mobile.webp",
+    src: "https://placehold.co/800x600?text=Home+Insulation+1",
     alt: "Insulation Contractors Wexford",
     width: 800,
     height: 600
   },
-  // ... other images with width and height
+  {
+    src: "https://placehold.co/800x600?text=Home+Insulation+2",
+    alt: "Cavity Wall Insulation",
+    width: 800,
+    height: 600
+  },
+  {
+    src: "https://placehold.co/800x600?text=Home+Insulation+3",
+    alt: "Attic Insulation",
+    width: 800,
+    height: 600
+  }
 ]
 
 const commercialImages = [
   {
-    src: "/commercial-shed-insulation-costs-ireland.webp",
+    src: "https://placehold.co/800x600?text=Commercial+1",
     alt: "Shed Insulation Cost Ireland",
     width: 800,
     height: 600
   },
-  // ... other images with width and height
+  {
+    src: "https://placehold.co/800x600?text=Commercial+2",
+    alt: "Commercial Insulation",
+    width: 800,
+    height: 600
+  },
+  {
+    src: "https://placehold.co/800x600?text=Commercial+3",
+    alt: "Industrial Insulation",
+    width: 800,
+    height: 600
+  }
 ]
 
 export function InsulationOverviewSection() {
