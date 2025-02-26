@@ -119,11 +119,13 @@ export function CallbackForm() {
                   mode="single"
                   selected={date}
                   onSelect={setDate}
-                  initialFocus
-                  disabled={(date) => 
-                    date < new Date() || 
-                    date > new Date().setMonth(new Date().getMonth() + 2)
-                  }
+                  disabled={(date) => {
+                    const today = new Date()
+                    const twoMonthsFromNow = new Date()
+                    twoMonthsFromNow.setMonth(today.getMonth() + 2)
+                    
+                    return date < today || date > twoMonthsFromNow
+                  }}
                   className="rounded-lg border-[#94B9AF]/20"
                 />
               </PopoverContent>

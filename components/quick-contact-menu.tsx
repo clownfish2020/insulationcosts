@@ -1,14 +1,26 @@
 "use client"
 
-import { useState } from "react"
+import { useState, ComponentType } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Plus, Mail, Phone, MessageCircle, FileText, PhoneIncoming, X } from "lucide-react"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { CallbackForm } from "@/components/callback-form"
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog"
+import { cn } from "@/lib/utils"
+import { LucideIcon } from 'lucide-react'
 
-const contactOptions = [
+// Update the interface to use LucideIcon type
+interface ContactOption {
+  icon: LucideIcon
+  tooltip: string
+  component?: ComponentType
+  color: string
+  className?: string
+  href?: string
+}
+
+const contactOptions: ContactOption[] = [
   {
     icon: FileText,
     tooltip: "Get a Quote",
@@ -20,7 +32,7 @@ const contactOptions = [
     icon: PhoneIncoming,
     tooltip: "Request Callback",
     component: CallbackForm,
-    color: "#ffffff",
+    color: "#4d6166",
     className: "bg-gradient-to-r from-[#4d6166] to-[#94B9AF] text-white hover:brightness-110 font-montserrat"
   },
   {
@@ -32,14 +44,16 @@ const contactOptions = [
   {
     icon: Mail,
     tooltip: "Email Us",
-    href: "mailto:info@example.com",
-    color: "#EA4335"
+    href: "mailto:info@insulationcostsireland.com",
+    color: "#EA4335",
+    className: "bg-gradient-to-r from-[#EA4335] to-[#FBBC05] text-white hover:brightness-110 font-montserrat"
   },
   {
     icon: MessageCircle,
     tooltip: "WhatsApp",
-    href: "https://wa.me/353123456789",
-    color: "#25D366"
+    href: "https://wa.me/your-number-here",
+    color: "#25D366",
+    className: "bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white hover:brightness-110 font-montserrat"
   }
 ]
 
@@ -83,32 +97,32 @@ export function QuickContactMenu() {
                   transition={{ delay: index * 0.1 }}
                   className="relative group"
                 >
-                  {'component' in option ? (
+                  {option.component ? (
                     <Dialog>
-                      <DialogTrigger>
-                        <Card 
-                          className={`p-3 cursor-pointer shadow-lg transition-all duration-200 group
-                            ${option.className || 'bg-white dark:bg-gray-800 hover:translate-x-1'}`}
-                        >
+                      <DialogTrigger asChild>
+                        <Card className={cn("p-3 cursor-pointer", option.className)}>
                           <option.icon 
                             className="w-6 h-6 transition-colors duration-200"
-                            style={{ color: option.className ? 'white' : option.color }}
+                            aria-hidden="true"
                           />
                         </Card>
                       </DialogTrigger>
                       <DialogContent className="font-montserrat-alternates">
-                        <option.component />
+                        {option.component && <option.component />}
                       </DialogContent>
                     </Dialog>
                   ) : (
-                    <Link href={option.href} target="_blank" rel="noopener noreferrer">
+                    <Link href={option.href || '#'} target="_blank" rel="noopener noreferrer">
                       <Card 
-                        className={`p-3 cursor-pointer shadow-lg transition-all duration-200 group
-                          ${option.className || 'bg-white dark:bg-gray-800 hover:translate-x-1'}`}
+                        className={cn(
+                          "p-3 cursor-pointer shadow-lg transition-all duration-200 group",
+                          option.className || 'bg-white dark:bg-gray-800 hover:translate-x-1'
+                        )}
                       >
                         <option.icon 
                           className="w-6 h-6 transition-colors duration-200"
                           style={{ color: option.color }}
+                          aria-hidden="true"
                         />
                       </Card>
                     </Link>

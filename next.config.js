@@ -2,11 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['your-domain.com'], // Add your image domains here
+    unoptimized: true,
+    domains: ['your-domain.com']
   },
   // Add experimental flag to optimize loading
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false,
     optimizePackageImports: ['@radix-ui', 'lucide-react', 'framer-motion'],
   },
   // Increase timeout for chunk loading

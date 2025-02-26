@@ -35,6 +35,9 @@ export function InfoCard({
     return links[type]
   }
 
+  // Add type check to ensure description is a string
+  const descriptionLines = typeof description === 'string' ? description.split('\n') : []
+
   return (
     <Card className="overflow-hidden border-0 bg-transparent">
       <motion.div
@@ -97,7 +100,7 @@ export function InfoCard({
                   <p className="text-lg font-montserrat">{description}</p>
                 ) : (
                   <div className="space-y-6">
-                    {description.split('\n').map((item: string, index: number) => {
+                    {descriptionLines.map((item: string, index: number) => {
                       if (item.match(/^\d/)) {
                         // For numbered items
                         return (

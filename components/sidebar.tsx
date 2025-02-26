@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { 
   Home, DoorOpen, Building2, CheckSquare, Globe, SunMedium, Users, Flag,
-  Newspaper, ArrowsInCardinal, Euro, Mail, Facebook, Twitter, Linkedin, 
-  Newspaper as Blog, MessageSquare, Wallet, GraduationCap, ChevronRight,
-  ChevronDown, X, Phone, Factory, Boxes, Ruler, Leaf, Phone as WhatsApp,
+  Newspaper, MoveHorizontal, Euro, Mail, Facebook, Twitter, Linkedin, 
+  MessageSquare, Wallet, GraduationCap, ChevronRight,
+  ChevronDown, X, Phone, Factory, Boxes, Ruler, Leaf,
   Wind, Shield, Box
 } from "lucide-react"
 import { useState } from "react"
@@ -61,19 +61,20 @@ export function AppSidebar({ isOpen, onClose }: AppSidebarProps) {
       Boxes: Boxes,
       Globe: Globe,
       Leaf: Leaf,
-      ArrowsInCardinal: ArrowsInCardinal,
+      MoveHorizontal: MoveHorizontal,
       Euro: Euro,
       Mail: Mail,
       Facebook: Facebook,
       Twitter: Twitter,
       Linkedin: Linkedin,
-      Blog: Blog,
+      Newspaper: Newspaper,
       MessageSquare: MessageSquare,
       Wallet: Wallet,
       GraduationCap: GraduationCap,
       Wind: Wind,
       Shield: Shield,
-      Box: Box
+      Box: Box,
+      Phone: Phone
     }
     const Icon = icons[name]
     return Icon ? <Icon className="w-4 h-4" /> : null
@@ -178,7 +179,7 @@ export function AppSidebar({ isOpen, onClose }: AppSidebarProps) {
       color: "text-[#0A66C2]" // LinkedIn blue
     },
     { 
-      icon: Blog, 
+      icon: MessageSquare, 
       title: "Blog", 
       href: "https://insulation-costs-ireland.blogspot.com/",
       color: "text-[#FF5722]" // Blogger orange
@@ -190,7 +191,7 @@ export function AppSidebar({ isOpen, onClose }: AppSidebarProps) {
       color: "text-[#EA4335]" // Gmail red
     },
     { 
-      icon: WhatsApp, 
+      icon: Phone, 
       title: "WhatsApp", 
       href: "https://wa.me/your-number-here", // Replace with your WhatsApp number
       color: "text-[#25D366]" // WhatsApp green
