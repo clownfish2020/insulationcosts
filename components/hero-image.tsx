@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
+import { useState, useEffect } from "react"
 
 interface HeroImageProps {
   desktopSrc: string
@@ -14,13 +15,13 @@ interface HeroImageProps {
   className?: string
 }
 
-const HeroImage = ({
+export default function HeroImage({
   desktopSrc,
   tabletSrc,
   mobileSrc,
   alt,
   className
-}: HeroImageProps) => {
+}: HeroImageProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -145,6 +146,4 @@ const HeroImage = ({
       </Card>
     </motion.div>
   )
-}
-
-export default HeroImage 
+} 
