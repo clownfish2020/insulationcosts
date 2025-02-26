@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --brand-primary: 165 19% 65%; /* #94B9AF */
+    --brand-accent: 165 25% 45%; /* Darker shade for contrast */
+    --brand-light: 165 19% 85%; /* Lighter shade for backgrounds */
+    
+    /* System Colors */
+    --background: 165 19% 95%; /* Very light sage for main background */
+    --foreground: 165 25% 15%; /* Dark sage for text */
+    --header-bg: 165 25% 35%; /* Darker sage for header */
+    --card: 0 0% 100%;
+    --card-foreground: 165 25% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 165 25% 15%;
+    --primary: var(--brand-primary);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--brand-accent);
+    --secondary-foreground: 0 0% 100%;
+    --muted: 165 19% 90%;
+    --muted-foreground: 165 25% 35%;
+    --accent: var(--brand-accent);
+    --accent-foreground: 0 0% 100%;
+    --border: 165 19% 85%;
+    --input: 165 19% 85%;
+    --ring: var(--brand-accent);
+    --radius: 0.75rem;
+
+    /* Sidebar colors */
+    --sidebar-background: 165 19% 98%;
+    --sidebar-foreground: 165 25% 25%;
+    --sidebar-primary: var(--brand-primary);
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 165 19% 90%;
+    --sidebar-accent-foreground: 165 25% 25%;
+    --sidebar-border: 165 19% 85%;
+    --sidebar-ring: var(--brand-accent);
+  }
+
+  .dark {
+    --background: 165 25% 15%; /* Dark sage background */
+    --foreground: 165 19% 95%;
+    --header-bg: 165 25% 25%; /* Slightly lighter for header */
+    --card: 165 25% 20%;
+    --card-foreground: 165 19% 95%;
+    --popover: 165 25% 20%;
+    --popover-foreground: 165 19% 95%;
+    --primary: var(--brand-primary);
+    --primary-foreground: 165 25% 15%;
+    --secondary: var(--brand-accent);
+    --secondary-foreground: 165 19% 95%;
+    --muted: 165 25% 25%;
+    --muted-foreground: 165 19% 75%;
+    --accent: var(--brand-accent);
+    --accent-foreground: 165 19% 95%;
+    --border: 165 25% 25%;
+    --input: 165 25% 25%;
+    --ring: var(--brand-accent);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased font-montserrat;
+  }
+
+  /* Typography */
+  h1 {
+    @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl font-montserrat-alternates;
+  }
+
+  h2 {
+    @apply scroll-m-20 text-3xl font-semibold tracking-tight transition-colors font-montserrat-alternates;
+  }
+
+  h3 {
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight font-montserrat-alternates;
+  }
+
+  p {
+    @apply leading-7 [&:not(:first-child)]:mt-6 font-montserrat;
+  }
+
+  /* Add these for consistent text styling */
+  .text-body {
+    @apply font-montserrat text-base leading-relaxed;
+  }
+
+  .text-heading {
+    @apply font-montserrat-alternates font-bold;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50;
+  }
+
+  .animate-fade-up {
+    @apply motion-safe:animate-[fade-up_0.5s_ease-out];
+  }
+
+  .animate-fade-down {
+    @apply motion-safe:animate-[fade-down_0.5s_ease-out];
+  }
+
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Custom styles */
+.card-hover-effect {
+  @apply transition-all duration-300 hover:shadow-2xl hover:border-green-500/50;
+}
+
+.card-image-hover {
+  @apply transition-transform hover:scale-105;
+}
+
+.button-hover-effect {
+  @apply relative overflow-hidden transition-all hover:bg-primary/90 shadow-lg hover:shadow-primary/50;
+}
+
+.button-hover-overlay {
+  @apply absolute inset-0 bg-white/20 transition-transform duration-300;
+}
+
+.footer-border {
+  @apply border-t border-green-600/30;
+}
+
+/* Add these font classes */
+.font-montserrat {
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.font-montserrat-alternates {
+  font-family: var(--font-montserrat-alternates), sans-serif;
+}
+
+@keyframes border-flow {
+  0% {
+    border-color: rgba(148, 185, 175, 0.2);
+    box-shadow: 0 0 10px rgba(148, 185, 175, 0.1);
+  }
+  50% {
+    border-color: rgba(77, 97, 102, 0.5);
+    box-shadow: 0 0 20px rgba(77, 97, 102, 0.2);
+  }
+  100% {
+    border-color: rgba(148, 185, 175, 0.2);
+    box-shadow: 0 0 10px rgba(148, 185, 175, 0.1);
+  }
+}
+
+.card-border {
+  position: relative;
+}
+
+.card-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(148, 185, 175, 0.2);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-border:hover::before {
+  border-color: rgba(77, 97, 102, 0.5);
+  box-shadow: 0 0 20px rgba(77, 97, 102, 0.2);
+  animation: border-flow 2s ease-in-out infinite;
+}
+
+/* Add a subtle glow effect */
+.card-glow {
+  box-shadow: 0 0 15px rgba(148, 185, 175, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 20px rgba(148, 185, 175, 0.2);
+}
+
+
