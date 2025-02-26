@@ -42,6 +42,9 @@
     --sidebar-accent-foreground: 165 25% 25%;
     --sidebar-border: 165 19% 85%;
     --sidebar-ring: var(--brand-accent);
+
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-montserrat-alternates: 'Montserrat Alternates', sans-serif;
   }
 
   .dark {
@@ -211,5 +214,7 @@
 .card-glow:hover {
   box-shadow: 0 0 20px rgba(148, 185, 175, 0.2);
 }
+
+/* Add any other global styles here */
 
 

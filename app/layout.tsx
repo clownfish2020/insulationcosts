@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Montserrat, Montserrat_Alternates } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
 import { ClientLayout } from "@/components/client-layout"
 
 // Optimize font loading
@@ -19,8 +19,9 @@ const montserratAlternates = Montserrat_Alternates({
 })
 
 export const metadata: Metadata = {
-  title: "Insulation Costs Ireland",
-  description: "Find out the costs of insulation in Ireland",
+  title: 'Insulation Costs Ireland | Professional Insulation Services',
+  description: 'Expert insulation services in Ireland. Get detailed cost information for home and commercial insulation including attic, wall, and floor insulation.',
+  keywords: 'insulation costs ireland, home insulation, commercial insulation, attic insulation, wall insulation',
 }
 
 export default function RootLayout({
